@@ -1,0 +1,90 @@
+### 사원 목록 조회 (관리자)
+GET http://localhost:8080/api/v1/employees
+Access-Token: Bearer eyJkYXRlIjoxNzE4NTEyMzYyMTE0LCJ0eXBlIjoiand0IiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImVtcFJvbGUiOiJST0xFX1VTRVIiLCJlbXBJZCI6InVzZXIwMiIsImV4cCI6MTcxODUxNTk2Mn0.75QB4B9Awfw35C1SuwJMNIrfw5texpbUtnWfNVGw-NrJ3YsAXikzD30gi9r8SBdt78SsqAo8Rhl6SCjAAamvAQ
+### 사원 목록 조회 (관리자)
+GET http://localhost:8080/api/v1/employees
+### 사원 등록
+POST http://localhost:8080/api/v1/employees/regist
+Content-Type: application/json
+
+{
+  "empId" : "user06",
+  "empPw": "user06",
+  "empName": "유저6",
+  "empEmail": "user06@fworks.com",
+  "empQuitYn": "N",
+  "empRole": "USER",
+  "empStatus": "ACTIVE",
+  "depNo": "6"
+}
+
+### 사원 수정
+PUT http://localhost:8080/api/v1/employees/3
+Content-Type: application/json
+Access-Token: Bearer eyJkYXRlIjoxNzE4NTEyMzYyMTE0LCJ0eXBlIjoiand0IiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImVtcFJvbGUiOiJST0xFX1VTRVIiLCJlbXBJZCI6InVzZXIwMiIsImV4cCI6MTcxODUxNTk2Mn0.75QB4B9Awfw35C1SuwJMNIrfw5texpbUtnWfNVGw-NrJ3YsAXikzD30gi9r8SBdt78SsqAo8Rhl6SCjAAamvAQ
+
+{
+  "empName": "유저2",
+  "empEmail": "user02@fworks.com",
+  "empQuitYn": "N",
+  "empStatus": "ACTIVE",
+  "depNo": "5"
+}
+
+### 사원 삭제
+DELETE http://localhost:8080/api/v1/employees/3
+Content-Type: application/json
+Access-Token: Bearer eyJkYXRlIjoxNzE4NTEyMzYyMTE0LCJ0eXBlIjoiand0IiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImVtcFJvbGUiOiJST0xFX1VTRVIiLCJlbXBJZCI6InVzZXIwMiIsImV4cCI6MTcxODUxNTk2Mn0.75QB4B9Awfw35C1SuwJMNIrfw5texpbUtnWfNVGw-NrJ3YsAXikzD30gi9r8SBdt78SsqAo8Rhl6SCjAAamvAQ
+
+
+### 관리자 로그인 테스트
+POST http://localhost:8080/api/v1/employees/login
+Content-Type: application/json
+
+{
+  "empId" : "admin",
+  "empPw": "admin"
+}
+
+### 로그인 테스트
+POST http://localhost:8080/api/v1/employees/login
+Content-Type: application/json
+
+{
+  "empId" : "user06",
+  "empPw": "user06"
+}
+
+### 마이페이지 프로필 조회
+GET http://localhost:8080/api/v1/employees/admin
+Access-Token: Bearer eyJkYXRlIjoxNzE4MTU1ODE1NjYzLCJ0eXBlIjoiand0IiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsIm1lbWJlcklkIjoidXNlcjAyIiwibWVtYmVyUm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTcxODE1OTQxNX0.bwh_l1MpfE5fdaZ1O7mnY0_ekl5r8h6umRV4b5HOAhugbYGfp99ajSZYOUWIqzvxI7q2dzCxlYJwtXfdp2BNRA
+
+### 마이페이지 프로필 조회
+GET http://localhost:8080/api/v1/employees/user02
+Access-Token: Bearer eyJkYXRlIjoxNzE4MzQ4ODgxODMyLCJ0eXBlIjoiand0IiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImVtcFJvbGUiOiJST0xFX1VTRVIiLCJlbXBJZCI6InVzZXIwMiIsImV4cCI6MTcxODM1MjQ4MX0.ZRx4oyxWIJrZronS_Yx4BYez0ypecPp30WdBh6NZfAQdgDT-87B5Y7Cp89mgw35Kb2NMdWHbVgWtULe7cLfBHQ
+
+### 로그아웃
+POST http://localhost:8080/api/v1/employees/logout
+Access-Token: Bearer eyJkYXRlIjoxNzE4NTEyMzYyMTE0LCJ0eXBlIjoiand0IiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImVtcFJvbGUiOiJST0xFX1VTRVIiLCJlbXBJZCI6InVzZXIwMiIsImV4cCI6MTcxODUxNTk2Mn0.75QB4B9Awfw35C1SuwJMNIrfw5texpbUtnWfNVGw-NrJ3YsAXikzD30gi9r8SBdt78SsqAo8Rhl6SCjAAamvAQ
+
+
+
+
+### 인증 되어야 하는 기능을 대상으로 테스트
+### 1. 토큰 값이 없거나 토큰이 잘 못 작성 된 경우 -> 인증 되지 않은 요청으로 처리
+GET http://localhost:8080/api/v1/employees/test
+
+### 2. Access Token 유효한 경우 -> 인증 되어 필터 통과 후 정상 수행
+GET http://localhost:8080/api/v1/employees/test
+Access-Token: Bearer eyJkYXRlIjoxNzE4NjM5ODA0OTk1LCJ0eXBlIjoiand0IiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImVtcElkIjoidXNlcjAyIiwiZW1wUm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTcxOTI0NDYwNH0.1PsBOKFsTJV8u0ekJwEG-zprmAB3xyvwfepP1xJ6F9xIoIdvC8DMhDjaJgKAK47SnjVHXOEdR3MSOo_00cZYzA
+
+### 3. Access Token 유효하지 않고 Refresh Token 유효한 경우 (access token 시간 설정 변경 후 테스트)
+### access token은 만료되어 인증 되지 않은 요청으로 처리 되며 refresh token을 보내면 토큰이 재발급 되어 응답 되고 DB도 update 된다.
+GET http://localhost:8080/api/v1/employees/test
+Refresh-Token: Bearer eyJkYXRlIjoxNzE1MzA3MTEzMjkxLCJ0eXBlIjoiand0IiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJSZWZyZXNoVG9rZW4iLCJleHAiOjE3MTU5MTE5MTN9.iGkJLGiztoFJcBsDJst4jSYP6WXjSa13U58aRl2MS6cFObGlpa_0U1eB8MJQ4VUiDidQ82z8PXSIljvRgpCnzw
+
+### 4. Access Token은 유효하지만 권한이 없는 경우 -> 허가 되지 않은 요청 오류
+GET http://localhost:8080/api/v1/products-management?page=1
+#Access-Token: Bearer eyJkYXRlIjoxNzE1MzA3NDMzNDQwLCJ0eXBlIjoiand0IiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsIm1lbWJlclJvbGUiOiJST0xFX1VTRVIiLCJtZW1iZXJJZCI6InVzZXIwMiIsImV4cCI6MTcxNTMxMTAzM30.lN6Qkynhhy4G8se6rV-PiUtRcJPhYil89Fp2LJmNRYUyH19xWDrQ791m-MUIadwaTSlblg5LXPBvvASaHyrxuw
+Access-Token: Bearer eyJkYXRlIjoxNzE4MTU1ODE1NjYzLCJ0eXBlIjoiand0IiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsIm1lbWJlcklkIjoidXNlcjAyIiwibWVtYmVyUm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTcxODE1OTQxNX0.bwh_l1MpfE5fdaZ1O7mnY0_ekl5r8h6umRV4b5HOAhugbYGfp99ajSZYOUWIqzvxI7q2dzCxlYJwtXfdp2BNRA
+
